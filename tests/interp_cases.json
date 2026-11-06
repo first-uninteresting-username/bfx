@@ -1,0 +1,86 @@
+{
+  "_comment": "Shared interpreter cases. Run by tests/test_interp.py and tests/interp_test.js. input_hex and output_hex are hex bytes. error_contains, when present, must appear in the error message and output_hex is ignored.",
+  "cases": [
+    {
+      "name": "decrement wraps 0 to 255",
+      "program": "-.",
+      "input_hex": "",
+      "output_hex": "ff"
+    },
+    {
+      "name": "increment wraps 255 to 0",
+      "program": "-+.",
+      "input_hex": "",
+      "output_hex": "00"
+    },
+    {
+      "name": "read at EOF sets cell to zero",
+      "program": "+++,.",
+      "input_hex": "",
+      "output_hex": "00"
+    },
+    {
+      "name": "input bytes are echoed in order",
+      "program": ",.,.",
+      "input_hex": "6162",
+      "output_hex": "6162"
+    },
+    {
+      "name": "input byte 0x00 is a normal value",
+      "program": ",.",
+      "input_hex": "00",
+      "output_hex": "00"
+    },
+    {
+      "name": "nested loops compute 32",
+      "program": "++++[>++++[>++<-]<-]>>.",
+      "input_hex": "",
+      "output_hex": "20"
+    },
+    {
+      "name": "loop is skipped when cell is zero",
+      "program": "[.]+.",
+      "input_hex": "",
+      "output_hex": "01"
+    },
+    {
+      "name": "loop body runs until cell is zero",
+      "program": "+++[.-]",
+      "input_hex": "",
+      "output_hex": "030201"
+    },
+    {
+      "name": "non-command characters are comments",
+      "program": "a+b.c hello world! +.",
+      "input_hex": "",
+      "output_hex": "0102"
+    },
+    {
+      "name": "raw byte output",
+      "program": "+++++++++[>++++++++<-]>.",
+      "input_hex": "",
+      "output_hex": "48"
+    },
+    {
+      "name": "bracket at zero cell after move",
+      "program": "+[-]>[.]+.",
+      "input_hex": "",
+      "output_hex": "01"
+    },
+    {
+      "name": "unmatched close bracket",
+      "program": "+]",
+      "error_contains": "unmatched ']'"
+    },
+    {
+      "name": "unmatched open bracket",
+      "program": "[+",
+      "error_contains": "unmatched '['"
+    },
+    {
+      "name": "pointer moves before tape start",
+      "program": ">.<<.",
+      "error_contains": "before start of tape"
+    }
+  ]
+}

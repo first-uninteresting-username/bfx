@@ -1,0 +1,4 @@
+#layout Base
+<h1>About</h1>
+@Note(Every page is rendered by a Brainfuck program.)
+<p>Back to <a href="/">the start</a>.</p>

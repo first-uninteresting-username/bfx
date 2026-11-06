@@ -1,0 +1,9 @@
+@Base
+<!doctype html><html><head><meta charset="utf-8"><title>bfx</title></head><body>$<script src="/runtime/bf.js"></script></body></html>
+@@
+@Card
+<div class="card"><h2>$</h2></div>
+@@
+@Note
+<p class="note">$</p>
+@@

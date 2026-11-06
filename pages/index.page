@@ -1,0 +1,4 @@
+#layout Base
+<h1>bfx</h1>
+@Card(Hello from Brainfuck)
+<p><a href="/about/">About this site</a> and <a href="/islands/">the islands</a>.</p>

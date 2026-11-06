@@ -1,0 +1,6 @@
+#layout Base
+<h1>Islands</h1>
+<p>Counter:</p>
+<bf-island src="/islands/counter.bf"></bf-island>
+<p>Toggle:</p>
+<bf-island src="/islands/toggle.bf"></bf-island>
